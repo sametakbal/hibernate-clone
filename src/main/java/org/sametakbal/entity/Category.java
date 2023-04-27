@@ -1,6 +1,7 @@
 package org.sametakbal.entity;
 
 import org.hibernate.annotation.Column;
+import org.hibernate.annotation.Id;
 import org.hibernate.annotation.Table;
 
 import java.util.Date;
@@ -8,25 +9,7 @@ import java.util.Date;
 @Table(name = "category")
 public class Category {
 
-    public Category() {
-    }
 
-    public Category(String name) {
-        this.name = name;
-    }
-
-    @Column(name = "name")
-    private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
   public Category() {
   }
 
@@ -36,6 +19,7 @@ public class Category {
   this.lastUpdate = lastUpdate;
   }
 
+  @Id
   @Column(name = "category_id")
   private Integer id;
   @Column(name = "name")
@@ -66,5 +50,13 @@ public class Category {
   public void setLastUpdate(Date lastUpdate) {
   this.lastUpdate = lastUpdate;
   }
-  * */
+
+  @Override
+  public String toString() {
+    return "Category{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", lastUpdate=" + lastUpdate +
+            '}';
+  }
 }

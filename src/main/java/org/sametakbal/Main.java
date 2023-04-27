@@ -1,16 +1,20 @@
 package org.sametakbal;
 
+import org.hibernate.annotation.Column;
+import org.hibernate.annotation.Id;
 import org.hibernate.repository.CrudRepository;
 import org.sametakbal.entity.Category;
-import org.sametakbal.util.DatabaseConnection;
 
+import java.lang.reflect.Field;
+import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
-        DatabaseConnection databaseConnection = new DatabaseConnection();
-        CrudRepository<Category> repository = new CrudRepository<>(Category.class, databaseConnection.connect());
-        for (Category cat:repository.findAll()) {
-            System.out.println(cat.getName());
+        CrudRepository<Category,Integer> repository = new CrudRepository<>(Category.class);
+        Optional<Category> optionalCategory = repository.findById(1);
+        if (optionalCategory.isPresent()) {
+            System.out.println(optionalCategory.get());
         }
+
     }
 }
