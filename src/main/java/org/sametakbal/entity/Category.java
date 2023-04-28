@@ -4,7 +4,7 @@ import org.hibernate.annotation.Column;
 import org.hibernate.annotation.Id;
 import org.hibernate.annotation.Table;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Table(name = "category")
 public class Category {
