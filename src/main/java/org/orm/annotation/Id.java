@@ -1,4 +1,4 @@
-package org.hibernate.annotation;
+package org.orm.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
